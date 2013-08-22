@@ -1,0 +1,1 @@
+Enjoy playing Hangman!
