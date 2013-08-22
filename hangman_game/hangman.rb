@@ -4,19 +4,21 @@ class Hangman
 	require 'random-word'
 
 	def play_game
-		@lives = 7
-		puts "Welcome to Hangman!"
+		@lives = 5
 		get_a_word
+		puts "Welcome to Hangman! Your word is #{@word_length} letters long."
 		hide_the_word
 		while @word != @user_word && @lives > 0
 				guess_the_word
 				match_the_letter
+				drawing
 		end
 		puts @lives > 0 ? "Congratulations!" : "The correct word was #{@word}.\nGame Over!"
 	end
 
 	def get_a_word
 		@word = RandomWord.adjs.next
+		@word_length = @word.length
 	end
 
 	def hide_the_word
@@ -44,6 +46,20 @@ class Hangman
 			@lives -= 1
 		end
 		puts @user_word
+	end
+
+	def drawing
+		puts "_______"
+		puts "|     |"
+		puts "|     O"		if @lives < 5
+		puts "|    /|" 		if @lives == 3
+		puts "|    /|\\"	if @lives < 3
+		puts "|    /"		if @lives == 1
+		puts "|    / \\"	if @lives < 1
+		puts "|"			if @lives == 5
+		puts "|" 			if @lives >= 4
+		puts "|" 			if @lives >= 2
+		puts "|______"
 	end
 
 end
