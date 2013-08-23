@@ -24,10 +24,10 @@ class CRM
 	def call_option(user_selected)
 		if user_selected.between?(1,6)
   			Contact.add_contact if user_selected == 1
-  			Contact.modify_contact if user_selected == 2
-  			Contact.delete_contact if user_selected == 3
-  			Contact.display_contacts if user_selected == 4
-  			Contact.display_attribute if user_selected == 5
+  			Database.modify_contact if user_selected == 2
+  			Database.delete_contact if user_selected == 3
+  			Database.display_contacts if user_selected == 4
+  			Database.display_attribute if user_selected == 5
   			exit_application if user_selected == 6
   		else
   			puts "You have entered an invalid input. Please choose an option between 1-6."
@@ -66,18 +66,6 @@ class Contact
 	  	Database.add_database(contact)
 	end
 
-	def self.modify_contact
-	end
-
-	def self.delete_contact
-	end
-
-	def self.display_contacts
-	end
-
-	def self.display_attribute
-	end
-
 end
 
 class Database
@@ -94,6 +82,26 @@ class Database
   	def self.contacts
     	@contacts
   	end
+
+  	def self.modify_contact
+	end
+
+	def self.delete_contact
+		# print "Contact Id: "
+	 #  	contact_id = gets.to_i
+	 #  	puts "Are you sure you wish to delete contact #{contact_id}? (Y/N)"
+	 #  	response = gets.upcase.chomp
+	 #  		if response == "Y"
+	 #  			puts "The contact has been deleted."
+	 #  		end
+	end
+
+	def self.display_contacts
+		puts @contacts.inspect
+	end
+
+	def self.display_attribute
+	end
 
 end
 
