@@ -1,10 +1,20 @@
 class PicturesController < ApplicationController
+  
+  before_filter :get_picture, :only => [:show, :edit, :update, :destroy]
+
+  def get_picture
+    @picture = Picture.find(params[:id])
+  end
+
+  def picture_params
+    params.require(:picture).permit(:artist, :title, :url)
+  end
+
   def index
     @pictures = Picture.all
   end
 
   def show
-    @picture = Picture.find(params[:id])
   end
 
   def new
@@ -23,27 +33,19 @@ class PicturesController < ApplicationController
     end
   end
 
-  def picture_params
-    params.require(:picture).permit(:artist, :title, :url)
-  end
-
   def edit
-    @picture = Picture.find(params[:id])
   end
 
   def update
-    @picture = Picture.find(params[:id])
-
     if @picture.update_attributes(picture_params)
-      redirect_to "/pictures/#{@picture.id}"
+      redirect_to @picture
     else
       render :edit
     end
   end
 
   def destroy
-    @picture = Picture.find(params[:id])
     @picture.destroy
-    redirect_to pictures_url
+    redirect_to pictures_path
   end
 end
