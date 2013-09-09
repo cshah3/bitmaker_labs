@@ -15,6 +15,10 @@ before_filter :get_product, :only => [:show, :edit, :update, :destroy]
   end
 
   def show
+    if current_user
+      @review = @product.reviews.build
+    end
+
     respond_to do |format|
       format.html
       format.json { render json: @product }
