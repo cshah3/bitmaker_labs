@@ -5,10 +5,6 @@ before_filter :get_product, :only => [:show, :edit, :update, :destroy]
     @product = Product.find(params[:id])
   end
 
-  def product_params
-    params.require(:product).permit(:name, :description, :price_in_cents)
-  end
-
   def index
     @products = Product.all
 
@@ -70,5 +66,10 @@ before_filter :get_product, :only => [:show, :edit, :update, :destroy]
       format.html { redirect_to products_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def product_params
+    params.require(:product).permit(:name, :description, :price_in_cents)
   end
 end
