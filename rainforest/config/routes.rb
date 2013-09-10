@@ -4,7 +4,7 @@ Rainforest::Application.routes.draw do
     resources :reviews, :except => [:index]
   end
   
-  resources :users, :only => [:new, :create]
+  resources :users, :except => [:index]
   resources :sessions, :only => [:new, :create, :destroy]
   
   root :to => "products#index"
