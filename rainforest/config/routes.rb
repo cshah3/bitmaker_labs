@@ -1,7 +1,7 @@
 Rainforest::Application.routes.draw do
   
   resources :products do
-    resources :reviews, :except => [:index]
+    resources :reviews
   end
   
   resources :users, :except => [:index]

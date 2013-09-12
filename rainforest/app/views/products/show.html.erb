@@ -6,9 +6,7 @@
 <%= @product[:description] %>
 <%= @product.formatted_price %></p>
 
-<h3>Reviews</h3>
-
-<p>Reviews for <%= @product.name %></p>
+<h3><%= link_to "Reviews", product_reviews_path(@product) %></h3>
 
   <% @product.reviews.each do |review| %>
     <p>
