@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-before_filter :get_product, :only => [:show, :edit, :update, :destroy]
+before_filter :get_product, :only => [:show, :edit, :update, :destroy, :like, :unlike]
+before_filter :ensure_logged_in, :only => [:like, :unlike]
 
   def index
     @products = Product.all
@@ -66,6 +67,16 @@ before_filter :get_product, :only => [:show, :edit, :update, :destroy]
       format.html { redirect_to products_url }
       format.json { head :no_content }
     end
+  end
+
+  def like
+    @product.users << current_user if !@product.users.include?(current_user)
+    redirect_to @product
+  end
+
+  def unlike
+    @product.users.destroy(current_user)
+    redirect_to @product
   end
 
   private

@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130909204159) do
+ActiveRecord::Schema.define(version: 20130917193544) do
+
+  create_table "likes", force: true do |t|
+    t.integer "product_id"
+    t.integer "user_id"
+  end
 
   create_table "products", force: true do |t|
     t.string   "name"

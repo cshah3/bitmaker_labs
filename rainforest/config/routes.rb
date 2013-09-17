@@ -2,6 +2,10 @@ Rainforest::Application.routes.draw do
   
   resources :products do
     resources :reviews
+    member do
+      post 'like'
+      post 'unlike'
+    end
   end
   
   resources :users, :except => [:index]

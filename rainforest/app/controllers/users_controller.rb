@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-layout 'static', :only => [:new]
+layout 'static', :only => [:new, :create]
 before_filter :get_user, :only => [:show, :edit, :update, :destroy]
 
   def show
@@ -10,7 +10,6 @@ before_filter :get_user, :only => [:show, :edit, :update, :destroy]
   end
 
   def create
-    render layout: 'static'
     @user = User.create(user_params)
     if @user.save
       redirect_to products_url, :notice => "Signed up!"

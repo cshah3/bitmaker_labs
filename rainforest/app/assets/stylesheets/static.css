@@ -27,11 +27,12 @@
     border: 2px solid #999;
     border-radius: 10px;
     background-color: light-grey;
-    opacity: .5;
+    opacity: .7;
 }
 
 ::-webkit-input-placeholder {
 	color: orange;
+    text-align: center;
 }
 
 .actions input {
@@ -61,4 +62,21 @@
 .action:active input{
     position:relative;
     top:1px;
+}
+
+.link:link {
+    text-decoration: none;
+    background-color: grey;
+    opacity: 0.6;
+    font-size: 0.7em;
+}
+
+.link:hover {
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.link:visited {
+    color: white;
+    text-decoration: none;
 }
