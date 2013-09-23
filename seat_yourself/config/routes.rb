@@ -13,7 +13,7 @@ SeatYourself::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :restaurants do
-    resources :reservations, only: :create
+    resources :reservations
   end
   resources :users, except: :index
   resources :sessions, only: [:new, :create, :destroy]

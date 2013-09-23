@@ -5,3 +5,10 @@
 <li> Address: <%= @restaurant.address %> </li>
 <li> Cuisine: <%= @restaurant.cuisine %> </li>
 <li> <%= link_to "Official Website", "http://#{@restaurant.url}", target: '_blank' %> </li>
+
+<% if current_user %>
+	<h4>New Reservation</h4>
+  <%= render '/reservations/form' %>
+<% else %>
+  <p>Please <%= link_to "log in", new_session_path %> to add a reservation.</p> 
+<% end %>
