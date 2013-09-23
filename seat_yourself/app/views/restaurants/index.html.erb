@@ -1,0 +1,11 @@
+<h3>Welcome!</h3>
+
+<% @restaurants.each do |restaurant| %>
+<ul>
+	<li> <%= link_to restaurant.name, restaurant %> </li>
+	<li> Description: <%= restaurant.description %> </li>
+	<li> Address: <%= restaurant.address %> </li>
+	<li> Cuisine: <%= restaurant.cuisine %> </li>
+	<li> <%= link_to "Official Website", "http://#{restaurant.url}", target: '_blank' %> </li>
+</ul>
+<% end %>

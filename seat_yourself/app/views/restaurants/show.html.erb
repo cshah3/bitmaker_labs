@@ -1,0 +1,7 @@
+<%= link_to "Back to Restaurants", restaurants_url %>
+
+<li> <%= @restaurant.name %> </li>
+<li> Description: <%= @restaurant.description %> </li>
+<li> Address: <%= @restaurant.address %> </li>
+<li> Cuisine: <%= @restaurant.cuisine %> </li>
+<li> <%= link_to "Official Website", "http://#{@restaurant.url}", target: '_blank' %> </li>
