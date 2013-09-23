@@ -1,17 +1,9 @@
 class ReservationsController < ApplicationController
   before_filter :load_restaurant
-  before_filter :ensure_logged_in, :only => [:edit, :create, :show, :update, :destroy]
+  before_filter :ensure_logged_in
 
   def index
     @reservation = @restaurant.reservations
-  end
-
-  def new
-  	@reservation = Reservation.new
-  end
-
-  def show
-    @reservation = Reservation.find(params[:id])
   end
 
   def create
@@ -19,15 +11,16 @@ class ReservationsController < ApplicationController
     @reservation.user_id = current_user.id
 
     if @reservation.save
-      redirect_to restaurants_path, notice: 'Reservation created successfully'
+      redirect_to @restaurant, notice: 'Reservation created successfully!'
     else
-      render :show
+      redirect_to @restaurant, notice: 'Reservation unsuccessful!'
     end
   end
 
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
+    redirect_to restaurant_reservations_path
   end
 
   private

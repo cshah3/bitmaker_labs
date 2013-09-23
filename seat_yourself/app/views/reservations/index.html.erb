@@ -1,0 +1,14 @@
+<%= link_to "Back", @restaurant %>
+
+<h3>Reservations</h3>
+
+  <% @restaurant.reservations.each do |reservation| %>
+    <p>
+      <li>Time: <%= reservation.spot %></li>
+      <li>Party Size: <%= reservation.size %></li>
+      <% if reservation.user != nil %>
+        <li>Name: <%= reservation.user.name %></li>
+      <% end %>
+      <%= link_to "Delete", restaurant_reservation_path(@restaurant, reservation), :confirm => "Are you sure you want to delete this reservation?", :method => :delete %>
+    </p>
+  <% end %>

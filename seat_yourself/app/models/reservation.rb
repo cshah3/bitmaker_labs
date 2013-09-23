@@ -9,7 +9,7 @@ class Reservation < ActiveRecord::Base
 
 	private
 	def in_the_future
-    if spot < DateTime.now
+    if spot < (DateTime.now - 1)
       errors.add(:spot, "We haven't invented time travel yet!")
     end
 	end
