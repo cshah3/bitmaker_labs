@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>About Me</title>
+</head>
+<body>
+  <h1>About Me</h1>
+  
+  <ul>
+    <li>Nickname: <span id="nickname"></span>
+    <li>Favorites:  <span id="favorites"></span>
+    <li>Hometown: <span id="hometown"></span>
+   </ul>
+
+   <script type="text/javascript">
+      document.body.style.fontFamily = 'Arial, sans-serif';
+      document.getElementById("nickname").innerHTML = "Cherry";
+      document.getElementById("favorites").innerHTML = "Tech, entrepreneurship, and coding.";
+      document.getElementById("hometown").innerHTML = "Dar-Es-Salaam";
+
+      document.getElementsByTagName('ul')[0].style.color = 'red';
+
+      var pic = document.createElement('img');
+      pic.src = 'http://photos1.meetupstatic.com/photos/member/b/6/e/6/member_111526822.jpeg';
+      document.body.appendChild(pic);
+   </script>
+
+ </body>
+</html>

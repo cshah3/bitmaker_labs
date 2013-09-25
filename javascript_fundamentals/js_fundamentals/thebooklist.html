@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>My Book List</h1>
+	<script type="text/javascript">
+	var books = [{title: "Harry Potter", author: "JK Rowling", alreadyRead: true}, {title: "Outliers", author: "Malcom Gladwell", alreadyRead: true}, {title: "Singularity", author: "Ray Kurzweil", alreadyRead: false}]
+
+	for (var i = 0; i < books.length; i++) {
+	if (books[i].alreadyRead) {
+		document.write("<p>You already read \"" + books[i].title + "\" by " + books[i].author + ".</p>")
+	}
+	else {
+		document.write("<p>You still need to read \"" + books[i].title + "\" by " + books[i].author + ".</p>")
+	}
+	}
+	</script>
+</body>
+</html>
