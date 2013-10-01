@@ -1,7 +1,7 @@
 $(function() {
 
-  // var ipAddress = "http://10.0.0.74/motion-control/update";
-  var ipAddress = "http://localhost:8071/motion-control/update";
+  var ipAddress = "http://10.0.0.74:8071/motion-control/update";
+  // var ipAddress = "http://localhost:8071/motion-control/update";
 
   var displayNotification = function(text) {
     $(".notifications").text(text);
